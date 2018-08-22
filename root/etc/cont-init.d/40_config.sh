@@ -1,8 +1,12 @@
 #!/usr/bin/with-contenv bash
 
 # Create Folders & Simlinks, if missing
-if [ ! -L "/root/.urlwatch" ]; then
+if [ ! -d "/config/.urlwatch" ]; then
 	mkdir -p /config/.urlwatch/
+fi
+
+if [ ! -d "/config/crontabs" ]; then
+	mkdir -p /config/crontabs/
 fi
 
 # Copy over default files
@@ -14,6 +18,9 @@ if [ ! -f "/config/.urlwatch/urls.yaml" ]; then
     cp /defaults/urlwatch/urls.yaml /config/.urlwatch/urls.yaml
 fi
 
+if [ ! -f "/config/crontabs/abc" ]; then
+    cp /defaults/crontabs/abc /config/crontabs/abc
+fi
 # permissions
 chown -R abc:abc \
 	/config \
