@@ -21,6 +21,10 @@ fi
 if [ ! -f "/config/crontabs/abc" ]; then
     cp /defaults/crontabs/abc /config/crontabs/abc
 fi
+
+if [ ! -L "/etc/crontabs/abc" ]; then
+    ln -s /config/crontabs/abc /etc/crontabs/abc
+fi
 # permissions
 chown -R abc:abc \
 	/config
