@@ -23,8 +23,7 @@ if [ ! -f "/config/crontabs/abc" ]; then
 fi
 # permissions
 chown -R abc:abc \
-	/config \
-	/root
+	/config
 
 # run update on startup
 exec \
